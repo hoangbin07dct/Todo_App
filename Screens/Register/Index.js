@@ -20,7 +20,7 @@ import pass from '../../Images/icon_pass.png';
 import {registerRequest} from '../../utils/api-request';
 import {pathRegister} from '../../utils/api-path';
 import HeaderBar from '../../Components/Header/Index';
-import StastusBarCustom from '../../Components/StatusBar/Index';
+import StatusBarCustom from '../../Components/StatusBar/Index';
 const fWidth = Dimensions.get('window').width;
 const Register = () => {
   const [info, setInfo] = useState({
@@ -82,9 +82,9 @@ const Register = () => {
   };
   return (
     <>
-      <SafeAreaView style={{ backgroundColor: '#40d0a2' }} />
-      <SafeAreaView style={{flex: 1, position: 'absolute',top: -20}}>
-        {/* <StastusBarCustom /> */}
+      <SafeAreaView style={{backgroundColor: '#40d0a2'}} />
+      <SafeAreaView style={{flex: 1}}>
+        <StatusBarCustom />
         <HeaderBar title="Register" />
         <ScrollView>
           <View style={styles.contents}>
