@@ -9,18 +9,16 @@ import {
 } from 'react-native';
 import icon_add from '../../Images/addTask.png';
 import icon_search from '../../Images/searchTask.png';
-const ListButton = () => {
+const ListButton = ({gotoPage}) => {
   return (
     <View style={styles.listButton}>
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => Alert.alert('Simple Button pressed')}>
+      <TouchableOpacity style={styles.btn} onPress={() => gotoPage('/addTask')}>
         <Image source={icon_add} style={styles.icon_add} />
         <Text style={styles.btn_text}>ADD TASK</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.btn}
-        onPress={() => Alert.alert('Simple Button pressed')}>
+        onPress={() => gotoPage('/searchTask')}>
         <Image source={icon_search} style={styles.icon_search} />
         <Text style={styles.btn_text}>SEARCH</Text>
       </TouchableOpacity>

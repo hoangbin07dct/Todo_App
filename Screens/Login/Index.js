@@ -9,6 +9,7 @@ import {
   Image,
   Alert,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import logo from '../../Images/login.png';
@@ -27,6 +28,7 @@ const Login = () => {
   return isLogin ? <Redirect to={'/'} /> : <LayoutLogin />;
 };
 const LayoutLogin = () => {
+  // StatusBar.setHidden(true);
   const dispatch = useDispatch();
   const [info, setInfo] = useState({
     account: '',
@@ -70,43 +72,46 @@ const LayoutLogin = () => {
 
   // Render
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <View style={styles.wrapHeader}>
-          <Image source={logo} style={{width: 80, height: 80}} />
-          <Text style={styles.title}>Welcome</Text>
-        </View>
-        <View style={styles.wrapInput}>
-          <Image source={user} style={styles.iconUser} />
-          <TextInput
-            style={styles.input}
-            placeholder="Account or Email"
-            value={info.account}
-            onChangeText={changeInfo('account')}
-          />
-        </View>
-        <View style={styles.wrapInput}>
-          <Image source={pass} style={styles.iconPass} />
-          <TextInput
-            style={styles.input}
-            secureTextEntry={true}
-            placeholder="Password"
-            value={info.password}
-            onChangeText={changeInfo('password')}
-          />
-        </View>
-        <View style={styles.wrapInput}>
-          <TouchableOpacity style={styles.btn} onPress={handleLogin}>
-            <Text style={styles.btn_text}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.createLink}>
-          <Link component={TouchableOpacity} to="/register">
-            <Text style={styles.createLink__text}>Create an Account</Text>
-          </Link>
+    <>
+      <StatusBar backgroundColor="#fff" hidden={true} />
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <View style={styles.wrapHeader}>
+            <Image source={logo} style={{width: 80, height: 80}} />
+            <Text style={styles.title}>Welcome</Text>
+          </View>
+          <View style={styles.wrapInput}>
+            <Image source={user} style={styles.iconUser} />
+            <TextInput
+              style={styles.input}
+              placeholder="Account or Email"
+              value={info.account}
+              onChangeText={changeInfo('account')}
+            />
+          </View>
+          <View style={styles.wrapInput}>
+            <Image source={pass} style={styles.iconPass} />
+            <TextInput
+              style={styles.input}
+              secureTextEntry={true}
+              placeholder="Password"
+              value={info.password}
+              onChangeText={changeInfo('password')}
+            />
+          </View>
+          <View style={styles.wrapInput}>
+            <TouchableOpacity style={styles.btn} onPress={handleLogin}>
+              <Text style={styles.btn_text}>LOGIN</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.createLink}>
+            <Link component={TouchableOpacity} to="/register">
+              <Text style={styles.createLink__text}>Create an Account</Text>
+            </Link>
+          </View>
         </View>
       </View>
-    </View>
+    </>
   );
 };
 

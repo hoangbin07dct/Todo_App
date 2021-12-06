@@ -32,13 +32,17 @@ const Home = props => {
     }
   };
 
+  const gotoPage = page => {
+    props.history.push(page);
+  };
+
   useEffect(() => {
     getTasks();
   }, []);
   return (
     <View style={styles.container}>
       <View style={styles.contents}>
-        <ListButton />
+        <ListButton gotoPage={gotoPage} />
         <View style={styles.wrapList}>
           {tasks.length > 0 ? (
             tasks.map((item, idx) => (

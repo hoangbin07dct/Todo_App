@@ -7,7 +7,7 @@ const Layout = ({screen, isBack, nameScreen}) => {
     <>
       <SafeAreaView style={{backgroundColor: '#40d0a2'}} />
       <SafeAreaView style={{flex: 1}}>
-        <StatusBarCustom />
+        <StatusBarCustom barBackground="#40d0a2" barMode="light-content" />
         <HeaderBar isBack={isBack} title={nameScreen} />
         <ScrollView>{screen}</ScrollView>
       </SafeAreaView>
